@@ -11,93 +11,92 @@ def prettify(elem):
     return reparsed.toprettyxml(indent="  ")
 def getsummary (root):
     summary = SubElement(root, 'summary')
-    date = SubElement(summary, 'date')
-    date.text =  raw_input("Enter crime date: ");
-    location = SubElement(summary, 'location')
-    location.text= raw_input("Enter crime location: ");
+    date =  raw_input("Enter crime date: ");
+    SubElement(summary, 'date',{'value':date})
+    location= raw_input("Enter crime location: ");
+    SubElement(summary, 'location',{'value':location})
 def getvictim (root):
     victim = SubElement(root, 'victim')
-    name = SubElement(victim, 'name')
-    name.text = raw_input("Enter victim name: ")
-    address = SubElement(victim, 'address')
-    address.text = raw_input("Enter victim address: ");
-    age = SubElement(victim, 'age')
-    age.text = raw_input("Enter victim age: ");
-    occupation = SubElement(victim, 'occupation')
-    occupation.text = raw_input("Enter victim occupation: ")
-    cell_number = SubElement(victim, 'cell_number')
-    cell_number.text = raw_input("Enter victim cell number: ");
-    sex = SubElement(victim, 'sex')
-    sex.text = raw_input("Enter victim sex: ");
+    name= raw_input("Enter victim name: ")
+    SubElement(victim, 'name', {'value':name})
+    address = raw_input("Enter victim address: ");
+    SubElement(victim, 'address',{'value':address})
+    age= raw_input("Enter victim age: ");
+    SubElement(victim, 'age',{'value':age})
+    occupation = raw_input("Enter victim occupation: ")
+    SubElement(victim, 'occupation',{'value':occupation})
+    cell_number = raw_input("Enter victim cell number: ");
+    SubElement(victim, 'cell_number',{'value':cell_number})
+    sex = raw_input("Enter victim sex: ");
+    SubElement(victim, 'sex',{'value':sex})
 def getwitness(root):
     no_of_witnessess = int(raw_input("Enter number of witnessess: "));
     witnesses = SubElement(root, 'witnesses')
     for i in range(0,no_of_witnessess):
-        witness = []
-	name = SubElement(witnesses, 'name')
-	name.text = raw_input("Enter witness name: ");
-	address = SubElement(witnesses, 'address')
-	address.text = raw_input("Enter witness address: ")
-	age = SubElement(witnesses, 'age')
-	age.text= raw_input("Enter witness age: ");
-	occupation = SubElement(witnesses, 'occupation')
-	occupation.text = raw_input("Enter witness occupation: ")
-	cell_number = SubElement(witnesses, 'cell_number')
-	cell_number.text = raw_input("Enter witness cell number: ");
-	sex = SubElement(witnesses, 'sex')
-	sex.text = raw_input("Enter witness sex: ");
-	relationship = SubElement(witnesses, 'relationship')
-	relationship.text = raw_input("Enter witness relationship with victim: ");
+        witness = SubElement(witnesses, 'witness')    
+	name = raw_input("Enter witness name: ");
+	SubElement(witness, 'name',{'value': name})
+	address= raw_input("Enter witness address: ")
+	SubElement(witness, 'address',{'value':address})
+	age= raw_input("Enter witness age: ");
+        SubElement(witness, 'age',{'value':age})
+	occupation= raw_input("Enter witness occupation: ")
+	SubElement(witness, 'occupation',{'value',occupation})
+	cell_number = raw_input("Enter witness cell number: ");
+	SubElement(witness, 'cell_number',{'value':cell_number})
+	sex = raw_input("Enter witness sex: ");
+	SubElement(witness, 'sex',{'value':sex})
+	relationship = raw_input("Enter witness relationship with victim: ");
+	SubElement(witness, 'relationship',{'value':relationship})
 def getstolenitems (root):
     stolen_items = SubElement(root, 'stolen_items')
     no_of_stolen_items = int( raw_input("How many item has stolen? "))
     for i in range(0,no_of_stolen_items):
         items = SubElement(stolen_items, 'items')
-    	name = SubElement(items, 'name')
-    	name.text = raw_input("Enter item name: ")
-    	price = SubElement(items, 'price')
-    	price.text = raw_input("Enter item price: ")
-    	color = SubElement(items, 'color')
-    	color.text = raw_input("Enter item color: ")
-    	company_name = SubElement(items, 'company_name')
-    	company_name.text = raw_input("Enter item company name: ")
-    	quantity = SubElement(items, 'quantity')
-    	quantity.text = raw_input("Enter item quantity: ")
-    	#stolen_items.append(items)
+    	name = raw_input("Enter item name: ")
+    	SubElement(items, 'name',{'value':name})
+    	price = raw_input("Enter item price: ")
+    	SubElement(items, 'price',{'value':price})
+    	color = raw_input("Enter item color: ")
+    	SubElement(items, 'color',{'value':color})
+    	company_name = raw_input("Enter item company name: ")
+    	SubElement(items, 'company_name',{'value':company_name})
+    	quantity= raw_input("Enter item quantity: ")
+    	SubElement(items, 'quantity',{'value': quantity})
+    	
 def getevidences(root):
     evidences = SubElement(root, 'evidences')
     no_of_evidences = int(raw_input("Enter number of evidences collected"))
     for i in range(0,no_of_evidences):
-        evidence = SubElement(evidences, 'evidence')
-	evidence.text = raw_input("Enter the name of evidance: ")
-
+        evidence = raw_input("Enter the name of evidance: ")
+        SubElement(evidences, 'evidence',{'value':evidence})
+    
 def gettoolused(root):
     tool_used = SubElement(root, 'tool_used')
     tool = int (raw_input("Select tool uses in murder. 1-Gun 2-Knife 3-Posion"))
     if tool==1:
        Gun = SubElement(tool_used, 'Gun')
-       gun_model = SubElement(Gun, 'gun_model')
-       gun_model.text = raw_input("Enter Gun model") 
+       gun_model= raw_input("Enter Gun model")
+       SubElement(Gun, 'gun_model',{'value':gun_model}) 
     elif tool==2:
        knife = SubElement(tool_used, 'knife')
-       manufacturer_name = SubElement(knife, 'manufacturer_name')
-       manufacturer_name.text = raw_input("Enter knife manufacturer name")
+       manufacturer_name = raw_input("Enter knife manufacturer name")
+       SubElement(knife, 'manufacturer_name',{'value':manufacturer_name})
     elif tool==3:
        poision = SubElement(tool_used, 'posion')
-       name = SubElement(poision,'name')
-       name.text = raw_input("Enter poison name")
+       name= raw_input("Enter poison name")
+       SubElement(poision,'name',{'value':name})
     else:
         print ("Wrong option selected")
 
 def getkidnappers(root):
     kidnappers = SubElement(root, 'kidnappers')
-    no_of_kidnappers = SubElement(kidnappers, 'no_of_kidnappers') 
-    no_of_kidnappers.text = int (raw_input("Enter number of kidnappers"))
-    mode_of_carry = SubElement(kidnappers, 'mode_of_carry')
-    mode_of_carry.text (raw_input("Enter mode used to carry victim"))
-                    	    	               	       
+    no_of_kidnappers= int (raw_input("Enter number of kidnappers"))
+    SubElement(kidnappers, 'no_of_kidnappers',{'value':no_of_kidnappers})
+    mode_of_carry = (raw_input("Enter mode used to carry victim"))
+    SubElement(kidnappers, 'mode_of_carry',{'value':mode_of_carry})                	    	               	       
 print ("Welcome to Crime Reporting System")
-crs = open('D:/crs.xml', 'w')
+crs = open('D:/pythonxml/crs.xml', 'w')
 option=0
 crime = Element('crime')
 while option!=4:
@@ -108,7 +107,7 @@ while option!=4:
 	print (" 4- Exit")
 	option = input("Enter your choice: ");
 	if option==1:
-	       #robbery = Element('robbery')
+	       robbery = Element('robbery')
 	       robbery = SubElement(crime, 'robbery')
 	       getsummary(robbery)
 	   
@@ -124,9 +123,11 @@ while option!=4:
     	       
     	       'evidences'
     	       getevidences(robbery)
+    	       print tostring(robbery)
 	       xml= prettify(robbery)
                crs.write(xml)     
     	if option==2:
+    	
     	    murder = SubElement(crime, 'murder')
 	    getsummary(murder)
 	   
